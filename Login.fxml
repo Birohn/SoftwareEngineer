@@ -6,8 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="602.0" maxWidth="349.0" minHeight="602.0" minWidth="349.0" prefHeight="602.0" prefWidth="349.0" style="-fx-background-color: #0f021E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="602.0" maxWidth="349.0" minHeight="602.0" minWidth="349.0" prefHeight="602.0" prefWidth="349.0" style="-fx-background-color: #0f021E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <Label layoutX="83.0" layoutY="46.0" prefHeight="51.0" prefWidth="60.0" text="Ez" textFill="#482a68">
          <font>
@@ -27,6 +26,6 @@
             <Font size="16.0" />
          </font>
       </Hyperlink>
-      <Button layoutX="63.0" layoutY="506.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #30154D;" text="Create Account" textFill="#a372d7" />
+      <Button layoutX="63.0" layoutY="506.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #30154D;" text="Create Account" textFill="#a372d7" fx:id="createAcc" onAction="#handleAccClick"/>
    </children>
 </AnchorPane>
