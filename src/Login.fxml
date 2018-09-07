@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="602.0" maxWidth="349.0" minHeight="602.0" minWidth="349.0" prefHeight="602.0" prefWidth="349.0" style="-fx-background-color: #0f021E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Label layoutX="83.0" layoutY="46.0" prefHeight="51.0" prefWidth="60.0" text="Ez" textFill="#482a68">
+         <font>
+            <Font name="Serif Italic" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="46.0" text="Connect" textFill="#7240a8">
+         <font>
+            <Font name="Serif Bold" size="46.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameField" layoutX="74.0" layoutY="214.0" prefHeight="43.0" prefWidth="213.0" promptText="UserName" />
+      <Button fx:id="loginButton" contentDisplay="CENTER" layoutX="74.0" layoutY="329.0" mnemonicParsing="false" onAction="#Login" prefHeight="43.0" prefWidth="213.0" style="-fx-background-color: #4d4615;" text="Log-in" textAlignment="CENTER" textFill="#a372d7" />
+      <Hyperlink layoutX="113.0" layoutY="372.0" prefHeight="43.0" prefWidth="136.0" text="Forgot Password?" textFill="#ce57dd">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+      <Button fx:id="createAcc" layoutX="63.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleAccClick" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #30154D;" text="Create Account" textFill="#a372d7" />
+      <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="272.0" prefHeight="43.0" prefWidth="213.0" promptText="Password" />
+      <Label fx:id="dbstatus" layoutX="124.0" layoutY="447.0" prefHeight="17.0" prefWidth="114.0" text="sample" textAlignment="CENTER" textFill="WHITE" />
+      <Label fx:id="credentials" layoutX="97.0" layoutY="470.0" prefHeight="23.0" prefWidth="136.0" text="Label" textFill="WHITE" />
+   </children>
+</AnchorPane>

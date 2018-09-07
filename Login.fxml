@@ -19,13 +19,13 @@
          </font>
       </Label>
       <TextField layoutX="74.0" layoutY="214.0" prefHeight="43.0" prefWidth="213.0" promptText="UserName" />
-      <TextField layoutX="74.0" layoutY="272.0" prefHeight="43.0" prefWidth="213.0" promptText="Password" />
       <Button contentDisplay="CENTER" layoutX="74.0" layoutY="329.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="213.0" style="-fx-background-color: #30154D;" text="Log-in" textAlignment="CENTER" textFill="#a372d7" />
       <Hyperlink layoutX="113.0" layoutY="372.0" prefHeight="43.0" prefWidth="136.0" text="Forgot Password?" textFill="#ce57dd">
          <font>
             <Font size="16.0" />
          </font>
       </Hyperlink>
-      <Button layoutX="63.0" layoutY="506.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #30154D;" text="Create Account" textFill="#a372d7" fx:id="createAcc" onAction="#handleAccClick"/>
+      <Button fx:id="createAcc" layoutX="63.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleAccClick" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #30154D;" text="Create Account" textFill="#a372d7" />
+      <PasswordField layoutX="74.0" layoutY="272.0" prefHeight="43.0" prefWidth="213.0" promptText="Password" />
    </children>
 </AnchorPane>
