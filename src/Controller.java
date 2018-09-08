@@ -34,7 +34,7 @@ public class Controller implements Initializable{
 	@FXML
 	private Label credentials;
 	
-public void initialize(URL url, ResourceBundle rb) {
+public void initialize(URL url, ResourceBundle rb) { //checks to see if database is connected through label on the interface
 		if(this.loginModel.isConnected()) {
 			this.dbstatus.setText("Connected!");
 		}
@@ -44,7 +44,7 @@ public void initialize(URL url, ResourceBundle rb) {
 		
 	}
 @FXML
-public void Login(ActionEvent event) {
+public void Login(ActionEvent event) { //checks the credentials of user and pass and allows user to go to next stage.
 	try {
 		if(this.loginModel.isLogin(this.usernameField.getText(),this.passwordField.getText())) {
 			Stage stage = (Stage)this.loginButton.getScene().getWindow();
@@ -64,7 +64,7 @@ public void Login(ActionEvent event) {
 }
 
 
-public void Loggedin() {
+public void Loggedin() { //Creates a new stage and scene (dashboard)
 	try {
 		Stage userStage= new Stage();
 		FXMLLoader loader = new FXMLLoader();
@@ -103,7 +103,7 @@ public void Loggedin() {
 		
 	}
 	@FXML
-	public void handleToLogin() {
+	public void handleToLogin() { // Goes back to Login (Needs to be put into different controller)
 		try {
 			//Stage close = (Stage) goBackToLogin.getScene().getWindow();
 			//close.close();

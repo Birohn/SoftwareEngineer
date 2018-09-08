@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginModel {
+public class LoginModel { //responsible for connecting to the database
 	Connection connection;
 	
 	public LoginModel() {
@@ -20,10 +20,10 @@ public class LoginModel {
 		}
 	}
 	
-	public boolean isConnected() {
+	public boolean isConnected() { //checks to see if user is connected to database
 		return this.connection != null;
 	}
-	public boolean isLogin(String user, String pass) throws Exception{
+	public boolean isLogin(String user, String pass) throws Exception{ //checks the string in usernameFIeld and passwordField with database
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql="SELECT * FROM login where username = ? and password = ?";

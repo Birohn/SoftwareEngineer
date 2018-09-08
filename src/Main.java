@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		try {
+		try { //Starts up the login screen as soon as the program is executed
 			Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
 			primaryStage.setTitle("Log-in");
 			primaryStage.setResizable(false);

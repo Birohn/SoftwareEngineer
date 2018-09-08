@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConnection {
+public class DatabaseConnection { //links database
 	private static final String userName = "dbuser";
 	private static final String password = "dbpassword";
 	private static final String connect = "jdbc:mysql://localhost/login";
