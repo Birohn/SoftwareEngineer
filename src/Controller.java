@@ -40,7 +40,6 @@ public class Controller implements Initializable {
         } else {
             this.dbstatus.setText("Not Connected!");
         }
-
     }
 
     @FXML
@@ -95,7 +94,6 @@ public class Controller implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
 
     @FXML
@@ -108,12 +106,8 @@ public class Controller implements Initializable {
             stage.setTitle("Log-in");
             stage.setScene(new Scene(root));
             stage.show();
-
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
-
 }
