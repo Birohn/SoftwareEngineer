@@ -11,7 +11,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		try { //Starts up the login screen as soon as the program is executed
-			Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root= FXMLLoader.load(getClass().getResource("/Login/Login.fxml"));
 			primaryStage.setTitle("Log-in");
 			primaryStage.setResizable(false);
 			primaryStage.setScene(new Scene(root));
