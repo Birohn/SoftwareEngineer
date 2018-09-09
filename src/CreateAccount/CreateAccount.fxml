@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #0f021e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateAccount.accountController">
+   <children>
+      <Text fill="#82338d" layoutX="78.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#82338d" layoutX="79.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#82338d" layoutX="78.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#82338d" layoutX="78.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#82338d" layoutX="78.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField layoutX="78.0" layoutY="129.0" prefHeight="36.0" prefWidth="216.0" />
+      <TextField layoutX="78.0" layoutY="191.0" prefHeight="36.0" prefWidth="216.0" />
+      <TextField layoutX="78.0" layoutY="253.0" prefHeight="36.0" prefWidth="216.0" />
+      <Text fill="#482a68" layoutX="472.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ez">
+         <font>
+            <Font name="Serif Italic" size="38.0" />
+         </font>
+      </Text>
+      <Text fill="#7240a8" layoutX="510.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connect">
+         <font>
+            <Font name="Serif Bold" size="48.0" />
+         </font>
+      </Text>
+      <Button layoutX="78.0" layoutY="437.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #30154D;" text="Register" textFill="#a372d7" />
+      <Hyperlink fx:id="goBackToLogin" layoutX="199.0" layoutY="438.0" onAction="#handleToLogin" text="Already have an account?" textFill="#ce57dd" />
+      <Text fill="#7240a8" layoutX="79.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign-up">
+         <font>
+            <Font name="Serif Bold Italic" size="48.0" />
+         </font>
+      </Text>
+      <PasswordField layoutX="78.0" layoutY="317.0" prefHeight="36.0" prefWidth="216.0" />
+      <PasswordField layoutX="78.0" layoutY="381.0" prefHeight="36.0" prefWidth="216.0" />
+   </children>
+</AnchorPane>
