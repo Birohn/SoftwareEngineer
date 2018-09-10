@@ -61,7 +61,6 @@ public class Controller implements Initializable {
         }
     }
 
-
     public void Loggedin() { //Creates a new stage and scene (dashboard)
         try {
             Stage userStage = new Stage();

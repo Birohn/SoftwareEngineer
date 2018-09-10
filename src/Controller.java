@@ -57,7 +57,6 @@ public class Controller implements Initializable {
         }
     }
 
-
     public void Loggedin() { //Creates a new stage and scene (dashboard)
         try {
             Stage userStage = new Stage();
@@ -89,8 +88,6 @@ public class Controller implements Initializable {
             stage.setTitle("Sign-up");
             stage.setScene(new Scene(root));
             stage.show();
-
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
