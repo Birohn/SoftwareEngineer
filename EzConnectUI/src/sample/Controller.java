@@ -10,6 +10,7 @@ public class Controller {
 
     public void goClicked(){
         System.out.println("It's Searching...");
+        System.out.println("Jonathan");
     }
     static class Contacts extends ListCell<String> {
         HBox hbox= new HBox();
