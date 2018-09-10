@@ -18,4 +18,8 @@ import static org.junit.Assert.*;
 
 public class LoginTest {
 
+    @Test
+    public void test1() {
+        assertEquals(1 + 1, 2);
+    }
 }
