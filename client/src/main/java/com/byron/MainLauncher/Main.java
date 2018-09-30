@@ -12,8 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         try { //Starts up the login screen as soon as the program is executed
 //			Parent root= FXMLLoader.load(getClass().getResource("../Login/Login.fxml"));
-//			Parent root= FXMLLoader.load(getClass().getResource("../Login/Login.fxml"));
-
+//			Parent root= FXMLLoader.load(getClass().getResource("../Login/Login.fxml"))
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/Login.fxml"));
             primaryStage.setTitle("Log-in");
             primaryStage.setResizable(false);
