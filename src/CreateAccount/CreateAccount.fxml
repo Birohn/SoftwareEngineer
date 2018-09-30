@@ -56,7 +56,7 @@
         </Text>
         <PasswordField fx:id="password" layoutX="78.0" layoutY="317.0" prefHeight="36.0" prefWidth="216.0" />
         <PasswordField fx:id="passwordCheck" layoutX="78.0" layoutY="381.0" prefHeight="36.0" prefWidth="216.0" />
-      <Label fx:id="errorMessage" layoutX="79.0" layoutY="485.0" text="Label" textFill="#eb0000">
+      <Label fx:id="errorMessage" layoutX="79.0" layoutY="485.0" textFill="#eb0000">
          <font>
             <Font size="15.0" />
          </font>
