@@ -7,5 +7,5 @@ package com.messages;
  * Github: www.github.com/DomHeal
  */
 public enum Status {
-    ONLINE, AWAY, BUSY
+    OFFLINE, ONLINE, AWAY, BUSY,
 }

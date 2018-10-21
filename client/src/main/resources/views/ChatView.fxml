@@ -141,6 +141,7 @@
                                  <String fx:value="Online" />
                                  <String fx:value="Away" />
                                  <String fx:value="Busy" />
+                                 <String fx:value="Offline" />
                               </FXCollections>
                            </items>
                         </ComboBox>
