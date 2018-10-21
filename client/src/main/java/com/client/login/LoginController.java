@@ -30,9 +30,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-/**
- *  Created by Dominic on 12-Nov-15.
- */
+
 public class LoginController implements Initializable {
     @FXML private ImageView Defaultview;
     @FXML private ImageView Sarahview;
