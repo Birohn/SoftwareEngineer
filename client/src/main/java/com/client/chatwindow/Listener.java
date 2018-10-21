@@ -1,6 +1,8 @@
 package com.client.chatwindow;
 
 import com.client.login.LoginController;
+import com.client.util.Constants;
+import com.client.util.Encrypt;
 import com.messages.Message;
 import com.messages.MessageType;
 import com.messages.Status;
@@ -12,7 +14,7 @@ import java.net.Socket;
 
 import static com.messages.MessageType.CONNECTED;
 
-public class Listener implements Runnable{
+public class Listener implements Runnable {
 
     private static final String HASCONNECTED = "has connected";
 
@@ -61,6 +63,11 @@ public class Listener implements Runnable{
                     logger.debug("Message recieved:" + message.getMsg() + " MessageType:" + message.getType() + "Name:" + message.getName());
                     switch (message.getType()) {
                         case USER:
+                            Encrypt encryption = new Encrypt();
+                            System.out.println("Message before Decrypting (Received): " + message.getMsg());
+                            message.setMsg(encryption.decode(message.getMsg(), Constants.KEY));
+                            System.out.println("KEY used" + Constants.KEY);
+                            System.out.println("Message after Decryption: " + message.getMsg());
                             controller.addToChat(message);
                             break;
                         case VOICE:
@@ -105,8 +112,8 @@ public class Listener implements Runnable{
     }
 
     /* This method is used for sending a voice Message
- * @param msg - The message which the user generates
- */
+     * @param msg - The message which the user generates
+     */
     public static void sendVoiceMessage(byte[] audio) throws IOException {
         Message createMessage = new Message();
         createMessage.setName(username);
@@ -119,8 +126,8 @@ public class Listener implements Runnable{
     }
 
     /* This method is used for sending a normal Message
- * @param msg - The message which the user generates
- */
+     * @param msg - The message which the user generates
+     */
     public static void sendStatusUpdate(Status status) throws IOException {
         Message createMessage = new Message();
         createMessage.setName(username);

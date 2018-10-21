@@ -1,9 +1,7 @@
 package com.client.chatwindow;
 
 import com.client.login.MainLauncher;
-import com.client.util.VoicePlayback;
-import com.client.util.VoiceRecorder;
-import com.client.util.VoiceUtil;
+import com.client.util.*;
 import com.messages.Message;
 import com.messages.MessageType;
 import com.messages.Status;
@@ -46,18 +44,28 @@ import java.util.ResourceBundle;
 
 
 public class ChatController implements Initializable {
-
-    @FXML private TextArea messageBox;
-    @FXML private Label usernameLabel;
-    @FXML private Label onlineCountLabel;
-    @FXML private ListView userList;
-    @FXML private ImageView userImageView;
-    @FXML private Button recordBtn;
-    @FXML ListView chatPane;
-    @FXML ListView statusList;
-    @FXML BorderPane borderPane;
-    @FXML ComboBox statusComboBox;
-    @FXML ImageView microphoneImageView;
+    @FXML
+    private TextArea messageBox;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label onlineCountLabel;
+    @FXML
+    private ListView userList;
+    @FXML
+    private ImageView userImageView;
+    @FXML
+    private Button recordBtn;
+    @FXML
+    ListView chatPane;
+    @FXML
+    ListView statusList;
+    @FXML
+    BorderPane borderPane;
+    @FXML
+    ComboBox statusComboBox;
+    @FXML
+    ImageView microphoneImageView;
 
     Image microphoneActiveImage = new Image(getClass().getClassLoader().getResource("images/microphone-active.png").toString());
     Image microphoneInactiveImage = new Image(getClass().getClassLoader().getResource("images/microphone.png").toString());
@@ -70,6 +78,13 @@ public class ChatController implements Initializable {
     public void sendButtonAction() throws IOException {
         String msg = messageBox.getText();
         if (!messageBox.getText().isEmpty()) {
+            // Encrypt here
+            Encrypt encryption = new Encrypt();
+            System.out.println("Message Entered: " + msg);
+            msg = encryption.encode(msg, Constants.KEY);
+            System.out.println("Message after Recursion: " + msg);
+            // Encrypt here
+
             Listener.send(msg);
             messageBox.clear();
         }
@@ -78,13 +93,13 @@ public class ChatController implements Initializable {
     public void recordVoiceMessage() throws IOException {
         if (VoiceUtil.isRecording()) {
             Platform.runLater(() -> {
-                microphoneImageView.setImage(microphoneInactiveImage);
+                        microphoneImageView.setImage(microphoneInactiveImage);
                     }
             );
             VoiceUtil.setRecording(false);
         } else {
             Platform.runLater(() -> {
-                microphoneImageView.setImage(microphoneActiveImage);
+                        microphoneImageView.setImage(microphoneActiveImage);
 
                     }
             );
@@ -102,15 +117,15 @@ public class ChatController implements Initializable {
                 profileImage.setFitHeight(32);
                 profileImage.setFitWidth(32);
                 BubbledLabel bl6 = new BubbledLabel();
-                if (msg.getType() == MessageType.VOICE){
+                if (msg.getType() == MessageType.VOICE) {
                     ImageView imageview = new ImageView(new Image(getClass().getClassLoader().getResource("images/sound.png").toString()));
                     bl6.setGraphic(imageview);
                     bl6.setText("Sent a voice message!");
                     VoicePlayback.playAudio(msg.getVoiceMsg());
-                }else {
+                } else {
                     bl6.setText(msg.getName() + ": " + msg.getMsg());
                 }
-                bl6.setBackground(new Background(new BackgroundFill(Color.WHITE,null, null)));
+                bl6.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
                 HBox x = new HBox();
                 bl6.setBubbleSpec(BubbleSpec.FACE_LEFT_CENTER);
                 x.getChildren().addAll(profileImage, bl6);
@@ -133,11 +148,11 @@ public class ChatController implements Initializable {
                 profileImage.setFitWidth(32);
 
                 BubbledLabel bl6 = new BubbledLabel();
-                if (msg.getType() == MessageType.VOICE){
+                if (msg.getType() == MessageType.VOICE) {
                     bl6.setGraphic(new ImageView(new Image(getClass().getClassLoader().getResource("images/sound.png").toString())));
                     bl6.setText("Sent a voice message!");
                     VoicePlayback.playAudio(msg.getVoiceMsg());
-                }else {
+                } else {
                     bl6.setText(msg.getMsg());
                 }
                 bl6.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,
@@ -164,6 +179,7 @@ public class ChatController implements Initializable {
             t.start();
         }
     }
+
     public void setUsernameLabel(String username) {
         this.usernameLabel.setText(username);
     }
@@ -190,7 +206,7 @@ public class ChatController implements Initializable {
     /* Displays Notification when a user joins */
     public void newUserNotification(Message msg) {
         Platform.runLater(() -> {
-            Image profileImg = new Image(getClass().getClassLoader().getResource("images/" + msg.getPicture().toLowerCase() +".png").toString(),50,50,false,false);
+            Image profileImg = new Image(getClass().getClassLoader().getResource("images/" + msg.getPicture().toLowerCase() + ".png").toString(), 50, 50, false, false);
             TrayNotification tray = new TrayNotification();
             tray.setTitle("A new user has joined!");
             tray.setMessage(msg.getName() + " has joined the JavaFX Chatroom!");
@@ -253,7 +269,7 @@ public class ChatController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-                /* Drag and Drop */
+        /* Drag and Drop */
         borderPane.setOnMousePressed(event -> {
             xOffset = MainLauncher.getPrimaryStage().getX() - event.getScreenX();
             yOffset = MainLauncher.getPrimaryStage().getY() - event.getScreenY();

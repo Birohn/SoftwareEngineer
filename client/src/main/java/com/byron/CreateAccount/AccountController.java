@@ -67,8 +67,6 @@ public class AccountController {
             errorMessage.setText("There is an empty field!");
         } else if (!this.passwordCheck.getText().equals(this.password.getText())) {
             errorMessage.setText("Your password does not match! Check again!");
-
-
         } else {
             try {
                 Connection conn = DatabaseConnection.getConnection();
@@ -85,9 +83,6 @@ public class AccountController {
                 ex.printStackTrace();
             }
             handleToLogin();
-
         }
-
-
     }
 }
