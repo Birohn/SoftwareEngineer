@@ -66,7 +66,7 @@ public class Listener implements Runnable {
                             Encrypt encryption = new Encrypt();
                             System.out.println("Message before Decrypting (Received): " + message.getMsg());
                             message.setMsg(encryption.decode(message.getMsg(), Constants.KEY));
-                            System.out.println("KEY used" + Constants.KEY);
+//                            System.out.println("KEY used" + Constants.KEY);
                             System.out.println("Message after Decryption: " + message.getMsg());
                             controller.addToChat(message);
                             break;
