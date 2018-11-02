@@ -1,7 +1,9 @@
 package com.client.login;
 
+import com.byron.dbConn.DatabaseConnection;
 import com.client.chatwindow.ChatController;
 import com.client.chatwindow.Listener;
+import com.client.util.Constants;
 import com.client.util.ResizeHelper;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -27,21 +29,39 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Created by Dominic on 12-Nov-15.
+ */
+>>>>>>> master
 public class LoginController implements Initializable {
-    @FXML private ImageView Defaultview;
-    @FXML private ImageView Sarahview;
-    @FXML private ImageView Dominicview;
-    @FXML public  TextField hostnameTextfield;
-    @FXML private TextField portTextfield;
-    @FXML private TextField usernameTextfield;
-    @FXML private ChoiceBox imagePicker;
-    @FXML private Label selectedPicture;
+    @FXML
+    private ImageView Defaultview;
+    @FXML
+    private ImageView Sarahview;
+    @FXML
+    private ImageView Dominicview;
+    @FXML
+    public TextField hostnameTextfield;
+    @FXML
+    private TextField portTextfield;
+    @FXML
+    private TextField usernameTextfield;
+    @FXML
+    private ChoiceBox imagePicker;
+    @FXML
+    private Label selectedPicture;
     public static ChatController con;
-    @FXML private BorderPane borderPane;
+    @FXML
+    private BorderPane borderPane;
     private double xOffset;
     private double yOffset;
     private Scene scene;
@@ -55,7 +75,18 @@ public class LoginController implements Initializable {
     public static LoginController getInstance() {
         return instance;
     }
+
     public void loginButtonAction() throws IOException {
+        Random random = new Random();
+
+        Constants.KEY = random.nextInt(26) + 1;
+        Constants.KEY = 3;
+        // Use database to store the key
+//            System.out.println("KEY GENERATED: " + Constants.KEY);
+        Constants.isFirstTime = false;
+        // Save to DataBase
+        saveToDB(Constants.KEY + "");
+
         String hostname = hostnameTextfield.getText();
         int port = Integer.parseInt(portTextfield.getText());
         String username = usernameTextfield.getText();
@@ -68,6 +99,20 @@ public class LoginController implements Initializable {
         Thread x = new Thread(listener);
         x.start();
         this.scene = new Scene(window);
+    }
+
+    private void saveToDB(String key) {
+        String query = "INSERT INTO Keys(key) VALUES (?)";
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, key);
+            stmt.execute();
+            conn.close();
+            System.out.println("Key stored into the Database: " + key);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void showScene() throws IOException {
@@ -146,7 +191,7 @@ public class LoginController implements Initializable {
             }
         });
         int numberOfSquares = 30;
-        while (numberOfSquares > 0){
+        while (numberOfSquares > 0) {
             generateAnimation();
             numberOfSquares--;
         }
@@ -156,7 +201,7 @@ public class LoginController implements Initializable {
     /* This method is used to generate the animation on the login window, It will generate random ints to determine
      * the size, speed, starting points and direction of each square.
      */
-    public void generateAnimation(){
+    public void generateAnimation() {
         Random rand = new Random();
         int sizeOfSqaure = rand.nextInt(50) + 1;
         int speedOfSqaure = rand.nextInt(10) + 5;
@@ -168,37 +213,37 @@ public class LoginController implements Initializable {
         KeyValue moveYAxis = null;
         Rectangle r1 = null;
 
-        switch (direction){
-            case 1 :
+        switch (direction) {
+            case 1:
                 // MOVE LEFT TO RIGHT
-                r1 = new Rectangle(0,startYPoint,sizeOfSqaure,sizeOfSqaure);
-                moveXAxis = new KeyValue(r1.xProperty(), 350 -  sizeOfSqaure);
+                r1 = new Rectangle(0, startYPoint, sizeOfSqaure, sizeOfSqaure);
+                moveXAxis = new KeyValue(r1.xProperty(), 350 - sizeOfSqaure);
                 break;
-            case 2 :
+            case 2:
                 // MOVE TOP TO BOTTOM
-                r1 = new Rectangle(startXPoint,0,sizeOfSqaure,sizeOfSqaure);
+                r1 = new Rectangle(startXPoint, 0, sizeOfSqaure, sizeOfSqaure);
                 moveYAxis = new KeyValue(r1.yProperty(), 420 - sizeOfSqaure);
                 break;
-            case 3 :
+            case 3:
                 // MOVE LEFT TO RIGHT, TOP TO BOTTOM
-                r1 = new Rectangle(startXPoint,0,sizeOfSqaure,sizeOfSqaure);
-                moveXAxis = new KeyValue(r1.xProperty(), 350 -  sizeOfSqaure);
+                r1 = new Rectangle(startXPoint, 0, sizeOfSqaure, sizeOfSqaure);
+                moveXAxis = new KeyValue(r1.xProperty(), 350 - sizeOfSqaure);
                 moveYAxis = new KeyValue(r1.yProperty(), 420 - sizeOfSqaure);
                 break;
-            case 4 :
+            case 4:
                 // MOVE BOTTOM TO TOP
-                r1 = new Rectangle(startXPoint,420-sizeOfSqaure ,sizeOfSqaure,sizeOfSqaure);
+                r1 = new Rectangle(startXPoint, 420 - sizeOfSqaure, sizeOfSqaure, sizeOfSqaure);
                 moveYAxis = new KeyValue(r1.xProperty(), 0);
                 break;
-            case 5 :
+            case 5:
                 // MOVE RIGHT TO LEFT
-                r1 = new Rectangle(420-sizeOfSqaure,startYPoint,sizeOfSqaure,sizeOfSqaure);
+                r1 = new Rectangle(420 - sizeOfSqaure, startYPoint, sizeOfSqaure, sizeOfSqaure);
                 moveXAxis = new KeyValue(r1.xProperty(), 0);
                 break;
-            case 6 :
+            case 6:
                 //MOVE RIGHT TO LEFT, BOTTOM TO TOP
-                r1 = new Rectangle(startXPoint,0,sizeOfSqaure,sizeOfSqaure);
-                moveXAxis = new KeyValue(r1.xProperty(), 350 -  sizeOfSqaure);
+                r1 = new Rectangle(startXPoint, 0, sizeOfSqaure, sizeOfSqaure);
+                moveXAxis = new KeyValue(r1.xProperty(), 350 - sizeOfSqaure);
                 moveYAxis = new KeyValue(r1.yProperty(), 420 - sizeOfSqaure);
                 break;
 
@@ -215,22 +260,22 @@ public class LoginController implements Initializable {
         timeline.setAutoReverse(true);
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        borderPane.getChildren().add(borderPane.getChildren().size()-1,r1);
+        borderPane.getChildren().add(borderPane.getChildren().size() - 1, r1);
     }
 
     /* Terminates Application */
-    public void closeSystem(){
+    public void closeSystem() {
         Platform.exit();
         System.exit(0);
     }
 
-    public void minimizeWindow(){
+    public void minimizeWindow() {
         MainLauncher.getPrimaryStage().setIconified(true);
     }
 
     /* This displays an alert message to the user */
     public void showErrorDialog(String message) {
-        Platform.runLater(()-> {
+        Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!");
             alert.setHeaderText(message);

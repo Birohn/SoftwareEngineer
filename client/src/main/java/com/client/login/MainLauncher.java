@@ -1,5 +1,6 @@
 package com.client.login;
 
+import com.byron.dbConn.DatabaseConnection;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class MainLauncher extends Application {
@@ -37,5 +41,25 @@ public class MainLauncher extends Application {
 
     public static Stage getPrimaryStage() {
         return primaryStageObj;
+    }
+
+    @Override
+    public void stop() throws Exception {
+        System.out.println("STOP");
+        deleteKeys();
+        super.stop();
+    }
+
+    private void deleteKeys() {
+        String query = "DELETE * FROM Keys";
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.execute();
+            conn.close();
+            System.out.println("KEYS deleted");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
