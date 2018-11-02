@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b8db517a-180f-44b1-ada4-5bae1ff96857" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="f7a597aa-a840-49e2-b355-6811b0f726b9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/client/target/" />
+>>>>>>> master
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/client/target/" />
     <ignored path="$PROJECT_DIR$/server/target/" />
@@ -56,11 +64,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/main/java/com/messages/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+=======
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/login/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="85" column="54" lean-forward="true" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
+              <folding>
+                <element signature="e#2797#2813#0" expanded="true" />
+              </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -113,11 +132,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+=======
+      <file leaf-file-name="Listener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+>>>>>>> master
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,6 +156,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
       <find>comboBox</find>
       <find>NotificationType</find>
       <find>userlist</find>
@@ -144,6 +172,38 @@
       <find>na</find>
       <find>call</find>
       <find>message</find>
+=======
+      <find>message</find>
+      <find>messagebox</find>
+      <find>send</find>
+      <find>main</find>
+      <find>recieved</find>
+      <find>addToChat</find>
+      <find>enter message</find>
+      <find>encr</find>
+      <find>encrypt</find>
+      <find>encryption</find>
+      <find>addtochat</find>
+      <find>login bt</find>
+      <find>encry</find>
+      <find>button</find>
+      <find>key</find>
+      <find>constant</find>
+      <find>random</find>
+      <find>KEY</find>
+      <find>Constants.key</find>
+      <find>Constants.</find>
+      <find>decode</find>
+      <find>decrypt</find>
+      <find>constants.</find>
+      <find>stop</find>
+      <find>savetod</find>
+      <find>extends applica</find>
+      <find>constants.keys</find>
+      <find>finalize</find>
+      <find>saveto</find>
+      <find>key used</find>
+>>>>>>> master
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,13 +212,41 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/server/src/main/java/com/messages/Status.java" />
+=======
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/CreateAccount/userInfo.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/dbConn/DatabaseConnection.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/user/UserController.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/Login/LoginModel.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/CreateAccount/CreateAccount.fxml" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/Login/Login.fxml" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/user/mainScreen.fxml" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/CreateAccount/accountController.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/login/MainLauncherByron.java" />
+        <option value="$PROJECT_DIR$/client/src/main/resources/views/Login.fxml" />
+        <option value="$PROJECT_DIR$/client/src/main/resources/views/CreateAccount.fxml" />
+        <option value="$PROJECT_DIR$/mydb.db" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/Login/Controller.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/MainLauncher/Main.java" />
+        <option value="$PROJECT_DIR$/client/pom.xml" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/util/Encrypt.kt" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/util/Encryption.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/util/Recursion.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/byron/CreateAccount/AccountController.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/util/Constants.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/login/MainLauncher.java" />
+>>>>>>> master
         <option value="$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/ChatController.java" />
         <option value="$PROJECT_DIR$/client/src/main/resources/views/ChatView.fxml" />
         <option value="$PROJECT_DIR$/client/src/main/java/com/messages/User.java" />
         <option value="$PROJECT_DIR$/client/src/main/java/com/client/login/LoginController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/client/src/main/java/com/messages/MessageType.java" />
         <option value="$PROJECT_DIR$/client/src/main/java/com/messages/Status.java" />
+=======
+        <option value="$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -348,7 +436,11 @@
     <option name="totallyTimeSpent" value="11855000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="619" y="147" width="974" height="788" extended-state="0" />
+=======
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+>>>>>>> master
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4310722" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -365,11 +457,21 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3299532" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48366013" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2238806" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+>>>>>>> master
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -626,6 +728,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/login/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -637,6 +740,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
+=======
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#3395#4792#0" expanded="true" />
+            <element signature="e#4791#4792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/login/MainLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="56" column="66" lean-forward="true" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="85" column="54" lean-forward="true" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
+          <folding>
+            <element signature="e#2797#2813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/com/client/chatwindow/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
