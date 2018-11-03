@@ -35,13 +35,7 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-<<<<<<< HEAD
 
-=======
-/**
- * Created by Dominic on 12-Nov-15.
- */
->>>>>>> master
 public class LoginController implements Initializable {
     @FXML
     private ImageView Defaultview;

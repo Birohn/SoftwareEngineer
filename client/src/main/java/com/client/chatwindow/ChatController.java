@@ -55,6 +55,8 @@ public class ChatController implements Initializable {
     @FXML
     private ImageView userImageView;
     @FXML
+    private ImageView profileButtonView;
+    @FXML
     private Button recordBtn;
     @FXML
     ListView chatPane;
@@ -321,6 +323,20 @@ public class ChatController implements Initializable {
             case "Default":
                 this.userImageView.setImage(new Image(getClass().getClassLoader().getResource("images/default.png").toString()));
                 break;
+        }
+    }
+    @FXML
+    public void handleProfileClick() {
+        try {
+            FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/Profile.fxml"));
+            Parent window = fmxlLoader.load();
+            Stage stage= new Stage();
+            stage.setTitle("Profile");
+            stage.setResizable(true);
+            stage.setScene(new Scene(window));
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 

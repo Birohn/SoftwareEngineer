@@ -75,7 +75,7 @@
       </VBox>
    </left>
    <top>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #031c30;" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER">
          <center>
             <ImageView fitHeight="79.0" fitWidth="522.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
@@ -89,7 +89,7 @@
          <right>
             <HBox prefHeight="24.0" prefWidth="30.0" stylesheets="@../styles/ButtonStyle.css" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                  <ImageView fx:id="profileButtonView" fitHeight="23.0" fitWidth="30.0" onMouseClicked="#handleProfileClick" pickOnBounds="true" preserveRatio="true" styleClass="button">
                      <image>
                         <Image url="@../images/settings.png" />
                      </image>
@@ -130,7 +130,7 @@
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="usernameLabel" text="Dominic Heal" textFill="#fa6648">
+                        <Label fx:id="usernameLabel" text="User" textFill="#fa6648">
                            <font>
                               <Font name="HelveticaNeue Medium" size="14.0" />
                            </font>
