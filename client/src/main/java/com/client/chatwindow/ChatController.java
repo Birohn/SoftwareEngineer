@@ -1,5 +1,4 @@
 package com.client.chatwindow;
-
 import com.client.login.MainLauncher;
 import com.client.util.*;
 import com.messages.Message;
@@ -37,7 +36,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,7 +74,9 @@ public class ChatController implements Initializable {
     private double yOffset;
     Logger logger = LoggerFactory.getLogger(ChatController.class);
 
-
+    public String getUsername() {
+        return usernameLabel.getText();
+    }
     public void sendButtonAction() throws IOException {
         String msg = messageBox.getText();
         if (!messageBox.getText().isEmpty()) {
@@ -339,7 +339,6 @@ public class ChatController implements Initializable {
             ex.printStackTrace();
         }
     }
-
     public void logoutScene() {
         Platform.runLater(() -> {
             FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/LoginView.fxml"));

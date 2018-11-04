@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.chatwindow.ProfileController">
    <right>
       <HBox prefHeight="400.0" prefWidth="65.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER" />
    </right>
@@ -24,7 +24,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User" textFill="#ebebeb">
+                        <Label fx:id="profileusernameLabel" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User" textFill="#ebebeb">
                            <font>
                               <Font name="Times New Roman Bold" size="16.0" />
                            </font>
@@ -53,7 +53,7 @@
          <right>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closeButtom" fitHeight="33.0" fitWidth="29.0" onMousePressed="#closeApplication" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/close_normal.png" />
                      </image>
@@ -107,8 +107,8 @@
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <ComboBox layoutX="190.0" layoutY="258.0" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
-            <ComboBox layoutX="190.0" layoutY="213.0" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
+            <ComboBox fx:id="country" layoutX="190.0" layoutY="258.0" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
+            <ComboBox fx:id="month" layoutX="190.0" layoutY="213.0" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
             <TextField layoutX="316.0" layoutY="213.0" prefHeight="27.0" prefWidth="42.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
             <TextField layoutX="368.0" layoutY="213.0" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #30154D; -fx-border-color: #7240A8;" />
             <Label layoutX="190.0" layoutY="83.0" text="First Name Here" textFill="#7240a8">

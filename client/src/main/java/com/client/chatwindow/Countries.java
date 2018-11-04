@@ -11,5 +11,16 @@ public enum Countries {
     Morocco, Mozambique, Namibia, Nepal, Netherlands, New_Zealand, Nicaragua, Nigeria, Norway, Oman, Pakistan, Palau, Papua_New_Guinea, Peru, Philippines, Poland,
     Portugal, Qatar, Romania, Russia, Rwanda, Samoa, San_Marino, Saudi_Arabia, Senegal, Serbia, Senchelles, Sierra_Leone, Singapore, Slovakia, Slovenia, Somalia, South_Africa, Spain,
     Sri_Lanka, Sudan, Swaziland, Sweden, Switzerland, Syria, Taiwan, Thailand, Togo, Tonga, Tunisia, Turkey, Uganda, Ukraine, United_Kingdom, United_States, Uruguay, Uzbekinstan, Vanuatu,
-    Vietnam, Yemen, Zambia, Zimbabwe
+    Vietnam, Yemen, Zambia, Zimbabwe;
+
+    private Countries() {
+
+    }
+
+    public String value() {
+        return name();
+    }
+    public static Countries fromValue(String c) {
+        return valueOf(c);
+    }
 }
