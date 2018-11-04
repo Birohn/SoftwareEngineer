@@ -50,7 +50,7 @@ public class ProfileController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         showProfileUsername("Hello");
-        this.country.setItems(FXCollections.observableArrayList(country.getValue()));
-        country.setItems(FXCollections.observableArrayList(country.getValue()));
+        month.getItems().setAll(Month.values());
+        country.getItems().setAll(Countries.values());
     }
 }
