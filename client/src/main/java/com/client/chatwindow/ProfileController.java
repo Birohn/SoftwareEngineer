@@ -51,8 +51,9 @@ public class ProfileController implements Initializable {
         Stage stage = (Stage)closeButtom.getScene().getWindow();
         stage.close();
     }
-
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         userInfo users = userInfo.getInstance();
         status.setText(users.getStatus());
         birthDay.setText(users.getDay());
@@ -82,6 +83,7 @@ public class ProfileController implements Initializable {
                 stmt.setString(6,status.getText());
                 stmt.setInt(7, LoginModel.rowNum);
                 stmt.executeUpdate();
+                connection.close();
                 stmt.close();
             } catch (SQLException ex) {
 
