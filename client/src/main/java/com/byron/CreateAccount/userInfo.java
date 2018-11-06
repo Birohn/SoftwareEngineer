@@ -1,68 +1,94 @@
 package com.byron.CreateAccount;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class userInfo {
 
-    private final StringProperty userName;
-    private final StringProperty firstName;
-    private final StringProperty lastName;
-    private final StringProperty password;
+    String firstname;
+    String lastname;
+    String country;
+    String day;
+    String month;
+    String username;
+    String status;
+    String summary;
+    String year;
 
-    public userInfo(String firstName, String lastName, String userName, String password) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
-        this.userName = new SimpleStringProperty(userName);
-        this.password = new SimpleStringProperty(password);
+    private static userInfo onlyInstance = null;
+    private userInfo() {
+
+    }
+    public static userInfo getInstance() {
+        if(onlyInstance ==null) {
+            onlyInstance = new userInfo();
+        }
+        return onlyInstance;
     }
     //----------------------Accessors & Mutators -------------------------------//
-    public String getUserName() {
-        return userName.get();
+    public String getFirstname() {
+        return firstname;
     }
 
-    public StringProperty userNameProperty() {
-        return userName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setUserName(String userName) {
-        this.userName.set(userName);
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public StringProperty firstNameProperty() {
-        return firstName;
+    public String getCountry() {
+        return country;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getLastName() {
-        return lastName.get();
+    public String getDay() {
+        return day;
     }
 
-    public StringProperty lastNameProperty() {
-        return lastName;
+    public void setDay(String day) {
+        this.day = day;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName.set(lastName);
+    public String getMonth() {
+        return month;
     }
 
-    public String getPassword() {
-        return password.get();
+    public void setMonth(String month) {
+        this.month = month;
     }
 
-    public StringProperty passwordProperty() {
-        return password;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassword(String password) {
-        this.password.set(password);
+    public void setUsername(String username) {
+        this.username = username;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getYear() {return year;}
+
+    public void setYear(String year){this.year = year;}
 }

@@ -74,9 +74,7 @@ public class ChatController implements Initializable {
     private double yOffset;
     Logger logger = LoggerFactory.getLogger(ChatController.class);
 
-    public String getUsername() {
-        return usernameLabel.getText();
-    }
+
     public void sendButtonAction() throws IOException {
         String msg = messageBox.getText();
         if (!messageBox.getText().isEmpty()) {
