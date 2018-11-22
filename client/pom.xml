@@ -20,7 +20,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.client.login.MainLauncher</mainClass>
+                            <mainClass>com.byron.MainLauncher.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -38,7 +38,7 @@
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>com.client.login.MainLauncher</mainClass>
+                            <mainClass>com.byron.MainLauncher.Main</mainClass>
                         </manifest>
                     </archive>
 
