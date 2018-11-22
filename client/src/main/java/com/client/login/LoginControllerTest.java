@@ -13,6 +13,9 @@ import org.junit.Test;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.matcher.control.LabeledMatchers.hasText;
+
 public class LoginControllerTest extends ApplicationTest {
     @Override
     public void start(Stage stage) throws Exception {
@@ -41,7 +44,18 @@ public class LoginControllerTest extends ApplicationTest {
         clickOn("#passwordField");
         write("password");
         clickOn("#loginButton");
-        // Logout
-//        clickOn("#logout");
     }
+
+    @Test
+    public void loginWithIncorrectCredentials() {
+        // Login using userId and password
+        clickOn("#usernameField");
+        write("123123");
+        clickOn("#passwordField");
+        write("123123");
+        clickOn("#loginButton");
+        // Check if incorrect Credentials is displayed
+        verifyThat("#credentials", hasText("Wrong Creditials"));
+    }
+
 }
