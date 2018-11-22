@@ -49,8 +49,8 @@ public class LoginController implements Initializable {
     private TextField portTextfield;
     @FXML
     private TextField usernameTextfield;
-//    @FXML
-//    private ChoiceBox imagePicker;
+    @FXML
+    private ChoiceBox imagePicker;
     @FXML
     private Label selectedPicture;
     public static ChatController con;
@@ -130,6 +130,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        imagePicker.getSelectionModel().selectFirst();
+        selectedPicture.textProperty().bind(imagePicker.getSelectionModel().selectedItemProperty());
         selectedPicture.setVisible(false);
 
         /* Drag and Drop */
@@ -148,6 +150,38 @@ public class LoginController implements Initializable {
         borderPane.setOnMouseReleased(event -> {
             borderPane.setCursor(Cursor.DEFAULT);
         });
+        imagePicker.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldPicture, String newPicture) {
+                if (oldPicture != null) {
+                    switch (oldPicture) {
+                        case "Default":
+                            Defaultview.setVisible(false);
+                            break;
+                        case "Harry":
+                            Dominicview.setVisible(false);
+                            break;
+                        case "Potter":
+                            Sarahview.setVisible(false);
+                            break;
+                    }
+                }
+                if (newPicture != null) {
+                    switch (newPicture) {
+                        case "Default":
+                            Defaultview.setVisible(true);
+                            break;
+                        case "Harry":
+                            Dominicview.setVisible(true);
+                            break;
+                        case "Potter":
+                            Sarahview.setVisible(true);
+                            break;
+                    }
+                }
+            }
+        });
+
 
         int numberOfSquares = 30;
         while (numberOfSquares > 0) {

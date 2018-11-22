@@ -56,15 +56,15 @@
                   </ImageView>
                </children>
             </StackPane>
-            <!--<ChoiceBox fx:id="imagePicker" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">-->
-               <!--<items>-->
-                  <!--<FXCollections fx:factory="observableArrayList">-->
-                     <!--<String fx:value="Default" />-->
-                     <!--<String fx:value="Dominic" />-->
-                     <!--<String fx:value="Sarah" />-->
-                  <!--</FXCollections>-->
-               <!--</items>-->
-                    <!--</ChoiceBox>-->
+            <ChoiceBox fx:id="imagePicker" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Default" />
+                     <String fx:value="Dominic" />
+                     <String fx:value="Sarah" />
+                  </FXCollections>
+               </items>
+                    </ChoiceBox>
             <Label fx:id="selectedPicture" text="Label" GridPane.rowIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>

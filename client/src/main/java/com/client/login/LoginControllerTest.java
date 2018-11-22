@@ -57,5 +57,4 @@ public class LoginControllerTest extends ApplicationTest {
         // Check if incorrect Credentials is displayed
         verifyThat("#credentials", hasText("Wrong Creditials"));
     }
-
 }
