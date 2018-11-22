@@ -49,8 +49,8 @@ public class LoginController implements Initializable {
     private TextField portTextfield;
     @FXML
     private TextField usernameTextfield;
-    @FXML
-    private ChoiceBox imagePicker;
+//    @FXML
+//    private ChoiceBox imagePicker;
     @FXML
     private Label selectedPicture;
     public static ChatController con;
@@ -75,10 +75,8 @@ public class LoginController implements Initializable {
 
         Constants.KEY = random.nextInt(26) + 1;
         Constants.KEY = 3;
-        // Use database to store the key
-//            System.out.println("KEY GENERATED: " + Constants.KEY);
         Constants.isFirstTime = false;
-        // Save to DataBase
+
         saveToDB(Constants.KEY + "");
 
         String hostname = hostnameTextfield.getText();
@@ -132,8 +130,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imagePicker.getSelectionModel().selectFirst();
-        selectedPicture.textProperty().bind(imagePicker.getSelectionModel().selectedItemProperty());
         selectedPicture.setVisible(false);
 
         /* Drag and Drop */
@@ -153,37 +149,6 @@ public class LoginController implements Initializable {
             borderPane.setCursor(Cursor.DEFAULT);
         });
 
-        imagePicker.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> selected, String oldPicture, String newPicture) {
-                if (oldPicture != null) {
-                    switch (oldPicture) {
-                        case "Default":
-                            Defaultview.setVisible(false);
-                            break;
-                        case "Dominic":
-                            Dominicview.setVisible(false);
-                            break;
-                        case "Sarah":
-                            Sarahview.setVisible(false);
-                            break;
-                    }
-                }
-                if (newPicture != null) {
-                    switch (newPicture) {
-                        case "Default":
-                            Defaultview.setVisible(true);
-                            break;
-                        case "Dominic":
-                            Dominicview.setVisible(true);
-                            break;
-                        case "Sarah":
-                            Sarahview.setVisible(true);
-                            break;
-                    }
-                }
-            }
-        });
         int numberOfSquares = 30;
         while (numberOfSquares > 0) {
             generateAnimation();
