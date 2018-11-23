@@ -1,4 +1,5 @@
 package com.client.chatwindow;
+import com.byron.dbConn.DatabaseConnection;
 import com.client.login.MainLauncher;
 import com.client.util.*;
 import com.messages.Message;
@@ -15,6 +16,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,14 +36,21 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.textfield.TextFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 public class ChatController implements Initializable {
+    @FXML
+    private TextField searchBar;
     @FXML
     private TextArea messageBox;
     @FXML
@@ -73,7 +82,7 @@ public class ChatController implements Initializable {
     private double xOffset;
     private double yOffset;
     Logger logger = LoggerFactory.getLogger(ChatController.class);
-
+    static ArrayList<String> usersOnDB = new ArrayList();
 
     public void sendButtonAction() throws IOException {
         String msg = messageBox.getText();
@@ -307,7 +316,8 @@ public class ChatController implements Initializable {
                 ke.consume();
             }
         });
-
+        usersOnDB.add("Hello");
+        TextFields.bindAutoCompletion(searchBar, usersOnDB);
     }
 
     public void setImageLabel(String selectedPicture) {
@@ -337,6 +347,20 @@ public class ChatController implements Initializable {
             ex.printStackTrace();
         }
     }
+    @FXML
+    public void searchBarOnEnter() {
+        try {
+            FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/UserProfile.fxml"));
+            Parent window = fmxlLoader.load();
+            Stage stage= new Stage();
+            stage.setTitle("UserProfile");
+            stage.setResizable(true);
+            stage.setScene(new Scene(window));
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     public void logoutScene() {
         Platform.runLater(() -> {
             FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/LoginView.fxml"));
@@ -354,5 +378,24 @@ public class ChatController implements Initializable {
             stage.setScene(scene);
             stage.centerOnScreen();
         });
+
+    }
+    @FXML
+    public static void searchBarAutoComplete() {
+        Connection conn;
+        ResultSet rs;
+        String sql = "SELECT * FROM userInfo";
+        try {
+            conn = DatabaseConnection.getConnection();
+            rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()) {
+                usersOnDB.add(rs.getString(2) + " " + rs.getString(3));
+                System.out.println(usersOnDB);
+            }
+        }
+        catch(SQLException ex) {
+
+        }
+
     }
 }

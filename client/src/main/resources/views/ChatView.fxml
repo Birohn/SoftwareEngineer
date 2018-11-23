@@ -69,6 +69,7 @@
                   </Label>
                </children>
             </HBox>
+            <TextField fx:id="searchBar" onAction="#searchBarOnEnter" prefHeight="18.0" prefWidth="217.0" />
             <ListView fx:id="userList" focusTraversable="false" maxHeight="1.7976931348623157E308" prefHeight="495.0" prefWidth="217.0" style="-fx-border-image-width: 0;" stylesheets="@../styles/ListViewStyle.css">
             </ListView>
          </children>

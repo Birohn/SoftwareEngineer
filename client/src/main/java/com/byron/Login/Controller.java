@@ -27,6 +27,8 @@ import java.sql.Connection;
 
 import com.byron.Login.LoginModel;
 
+import static com.client.chatwindow.ChatController.searchBarAutoComplete;
+
 //----------------------------- DATABASE CONNECTION----------------------------------//
 public class Controller implements Initializable {
     Connection connection;
@@ -68,6 +70,7 @@ public class Controller implements Initializable {
 
     public void Loggedin() { //Creates a new stage and scene (dashboard)
         try {
+            searchBarAutoComplete();
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
 //            Pane root = (Pane) loader.load(getClass().getResource("views/mainScreen.fxml").openStream());
@@ -114,6 +117,7 @@ public class Controller implements Initializable {
         }
 
     }
+
 
     //--------------------------------LAYOUT FUNCTION-------------------------------------//
     @FXML
