@@ -28,13 +28,16 @@ public class UserProfileController implements Initializable{
     private Label country;
     @FXML
     private TextArea summary;
+    @FXML
+    private ImageView closeButtom;
     public void initialize (URL url, ResourceBundle rb) {
         userInfoInsert();
         summary.setDisable(true);
         summary.setStyle("-fx-opacity: 1;-fx-text-inner-color: #FF01F3;");
     }
-    public void closeApplication() throws Exception{
-
+    public void closeApplication(){
+        Stage stage = (Stage) closeButtom.getScene().getWindow();
+        stage.close();
     }
     public void userInfoInsert() {
         ResultSet rs = null;

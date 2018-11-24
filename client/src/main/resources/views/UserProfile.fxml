@@ -53,7 +53,7 @@
          <right>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closeButtom" fitHeight="33.0" fitWidth="29.0" onMouseClicked="#closeApplication" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/close_normal.png" />
                      </image>
