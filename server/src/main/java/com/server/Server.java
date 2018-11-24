@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Server {
-
     /* Setting up variables */
     private static final int PORT = 9001;
     private static final HashMap<String, User> names = new HashMap<>();
