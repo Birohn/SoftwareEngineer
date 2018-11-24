@@ -54,8 +54,7 @@ public class ProfileController implements Initializable {
         this.userImageView.setImage(new Image(getClass().getClassLoader().getResource("images/Dominic.png").toString()));
     }
 
-    public void closeApplication() throws Exception{
-        updateUser();
+    public void closeApplication(){
         Stage stage = (Stage) closeButtom.getScene().getWindow();
         stage.close();
     }
@@ -74,7 +73,7 @@ public class ProfileController implements Initializable {
         summary.setText(users.getSummary());
     }
 
-    public void profileUpdate() {
+    public void profileUpdate() throws Exception {
         Connection connection;
         PreparedStatement stmt;
         String updateProfile = "UPDATE userInfo SET country = ?, day = ?, month =?, year = ?, summary = ?, bio = ? WHERE id = ?";
@@ -122,10 +121,12 @@ public class ProfileController implements Initializable {
             connection.close();
             stmt.close();
 
+
         } catch (SQLException ex) {
 
 
         }
+        updateUser();
     }
 
     public void updateUser() throws Exception {

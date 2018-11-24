@@ -10,10 +10,10 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.chatwindow.UserProfileController">
    <right>
-      <HBox prefHeight="400.0" prefWidth="65.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="400.0" prefWidth="65.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
    </right>
    <top>
-      <BorderPane prefHeight="94.0" prefWidth="741.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="94.0" prefWidth="741.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -24,7 +24,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User" textFill="#ebebeb">
+                        <Label fx:id="username" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User">
                            <font>
                               <Font name="Times New Roman Bold" size="16.0" />
                            </font>
@@ -70,53 +70,43 @@
       </BorderPane>
    </top>
    <left>
-      <VBox prefHeight="521.0" prefWidth="78.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="521.0" prefWidth="78.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="130.0" layoutY="99.0" text="Status" textFill="#7240a8">
+            <Label layoutX="130.0" layoutY="99.0" text="Status" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="108.0" layoutY="204.0" text="Summary" textFill="#7240a8">
+            <Label layoutX="108.0" layoutY="204.0" text="Summary" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <TextArea layoutX="197.0" layoutY="211.0" prefHeight="100.0" prefWidth="251.0" wrapText="true" />
-            <Label layoutX="133.0" layoutY="134.0" text="DOB" textFill="#7240a8">
+            <TextArea fx:id="summary" layoutX="197.0" layoutY="211.0" prefHeight="100.0" prefWidth="251.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #000000; -fx-border-color: #67beb9;" wrapText="true" />
+            <Label layoutX="133.0" layoutY="134.0" text="DOB" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="113.0" layoutY="170.0" text="Country" textFill="#7240a8">
+            <Label layoutX="113.0" layoutY="170.0" text="Country" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="195.0" layoutY="88.0" prefHeight="40.0" prefWidth="236.0" text="Status Goes here and there and such" textFill="#7240a8" wrapText="true">
+            <Label fx:id="status" layoutX="195.0" layoutY="88.0" prefHeight="40.0" prefWidth="236.0" text="Status Goes here and there and such" textFill="#67beb9" wrapText="true">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="196.0" layoutY="134.0" prefHeight="18.0" prefWidth="96.0" text="Month Here" textFill="#7240a8">
+            <Label fx:id="month" layoutX="195.0" layoutY="134.0" prefHeight="18.0" prefWidth="215.0" text="Month" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="283.0" layoutY="134.0" text="Day" textFill="#7240a8">
-               <font>
-                  <Font name="Times New Roman" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="322.0" layoutY="134.0" text="Year" textFill="#7240a8">
-               <font>
-                  <Font name="Times New Roman" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="196.0" layoutY="170.0" prefHeight="18.0" prefWidth="152.0" text="Country" textFill="#7240a8">
+            <Label fx:id="country" layoutX="196.0" layoutY="170.0" prefHeight="18.0" prefWidth="152.0" text="Country" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>

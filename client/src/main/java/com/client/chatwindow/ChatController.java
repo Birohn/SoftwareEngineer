@@ -41,9 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -76,6 +74,7 @@ public class ChatController implements Initializable {
     @FXML
     ImageView microphoneImageView;
 
+    static int userId;
     Image microphoneActiveImage = new Image(getClass().getClassLoader().getResource("images/microphone-active.png").toString());
     Image microphoneInactiveImage = new Image(getClass().getClassLoader().getResource("images/microphone.png").toString());
 
@@ -348,17 +347,52 @@ public class ChatController implements Initializable {
         }
     }
     @FXML
-    public void searchBarOnEnter() {
+    public void searchBarOnEnter() throws Exception {
+        if(!isInDB()) {
+
+        }
+        else {
+            try {
+                FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/UserProfile.fxml"));
+                Parent window = fmxlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle(searchBar.getText());
+                stage.setResizable(true);
+                stage.setScene(new Scene(window));
+                stage.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    public boolean isInDB() throws Exception {
+        Connection connection = DatabaseConnection.getConnection();
+        String name = searchBar.getText();
+        String[] nameparse = name.split(" ");
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql="SELECT * FROM userInfo where fname = ? and lname = ?";
         try {
-            FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/UserProfile.fxml"));
-            Parent window = fmxlLoader.load();
-            Stage stage= new Stage();
-            stage.setTitle("UserProfile");
-            stage.setResizable(true);
-            stage.setScene(new Scene(window));
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            ps= connection.prepareStatement(sql);
+            ps.setString(1, nameparse[0]);
+            ps.setString(2, nameparse[1]);
+
+            rs = ps.executeQuery();
+            userId = rs.getInt(1);
+            System.out.println(userId);
+            if(rs.next()) {
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException ex) {
+            return false;
+        }
+        finally {
+            ps.close();
+            rs.close();
+            connection.close();
+
         }
     }
     public void logoutScene() {
@@ -390,7 +424,7 @@ public class ChatController implements Initializable {
             rs = conn.createStatement().executeQuery(sql);
             while(rs.next()) {
                 usersOnDB.add(rs.getString(2) + " " + rs.getString(3));
-                System.out.println(usersOnDB);
+
             }
         }
         catch(SQLException ex) {

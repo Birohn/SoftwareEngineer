@@ -10,10 +10,10 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.chatwindow.ProfileController">
    <right>
-      <HBox prefHeight="400.0" prefWidth="65.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="400.0" prefWidth="65.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
    </right>
    <top>
-      <BorderPane prefHeight="94.0" prefWidth="741.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="94.0" prefWidth="741.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -24,7 +24,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label fx:id="profileusernameLabel" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User" textFill="#ebebeb">
+                        <Label fx:id="profileusernameLabel" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="User">
                            <font>
                               <Font name="Times New Roman Bold" size="16.0" />
                            </font>
@@ -70,73 +70,73 @@
       </BorderPane>
    </top>
    <left>
-      <VBox prefHeight="521.0" prefWidth="78.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="521.0" prefWidth="78.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0F021E;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="95.0" layoutY="83.0" text="First Name" textFill="#7240a8">
+            <Label layoutX="95.0" layoutY="83.0" text="First Name" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="96.0" layoutY="127.0" text="Last Name" textFill="#7240a8">
+            <Label layoutX="96.0" layoutY="127.0" text="Last Name" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="121.0" layoutY="169.0" text="Status" textFill="#7240a8">
+            <Label layoutX="121.0" layoutY="169.0" text="Status" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="101.0" layoutY="322.0" text="Summary" textFill="#7240a8">
+            <Label layoutX="101.0" layoutY="322.0" text="Summary" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="status" layoutX="190.0" layoutY="165.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #7240A8;" />
+            <TextField fx:id="status" layoutX="190.0" layoutY="165.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #67beb9;" />
             <TextArea fx:id="summary" layoutX="188.0" layoutY="322.0" prefHeight="100.0" prefWidth="251.0" wrapText="true" />
-            <Label layoutX="124.0" layoutY="216.0" text="DOB" textFill="#7240a8">
+            <Label layoutX="124.0" layoutY="216.0" text="DOB" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="105.0" layoutY="261.0" text="Country" textFill="#7240a8">
+            <Label layoutX="105.0" layoutY="261.0" text="Country" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <ComboBox fx:id="country" layoutX="190.0" layoutY="258.0" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #7240A8;" />
-            <ComboBox id="birthYear" fx:id="month" layoutX="190.0" layoutY="213.0" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #7240A8;" />
-            <TextField id="birthDay" fx:id="birthDay" layoutX="316.0" layoutY="213.0" prefHeight="27.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #7240A8;" />
-            <TextField fx:id="birthYear" layoutX="368.0" layoutY="213.0" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #7240A8;" />
-            <Label fx:id="firstName" layoutX="190.0" layoutY="83.0" text="First Name Here" textFill="#7240a8">
+            <ComboBox fx:id="country" layoutX="190.0" layoutY="258.0" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #67beb9;" />
+            <ComboBox id="birthYear" fx:id="month" layoutX="190.0" layoutY="213.0" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #67beb9;" />
+            <TextField id="birthDay" fx:id="birthDay" layoutX="316.0" layoutY="213.0" prefHeight="27.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #67beb9;" />
+            <TextField fx:id="birthYear" layoutX="368.0" layoutY="213.0" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #67beb9;" />
+            <Label fx:id="firstName" layoutX="190.0" layoutY="83.0" text="First Name Here" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lastName" layoutX="188.0" layoutY="127.0" text="Last Name Here" textFill="#7240a8">
+            <Label fx:id="lastName" layoutX="188.0" layoutY="127.0" text="Last Name Here" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="233.0" layoutY="240.0" text="Month" textFill="#7240a8">
+            <Label layoutX="233.0" layoutY="240.0" text="Month" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="328.0" layoutY="240.0" text="Day" textFill="#7240a8">
+            <Label layoutX="328.0" layoutY="240.0" text="Day" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="391.0" layoutY="240.0" text="Year" textFill="#7240a8">
+            <Label layoutX="391.0" layoutY="240.0" text="Year" textFill="#67beb9">
                <font>
                   <Font name="Times New Roman" size="11.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="402.0" layoutY="439.0" onAction="#profileUpdate" text="Edit" textFill="#7240a8">
+            <Hyperlink layoutX="402.0" layoutY="439.0" onAction="#profileUpdate" text="Edit" textFill="#67beb9">
                <font>
                   <Font size="16.0" />
                </font>
