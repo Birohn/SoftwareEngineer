@@ -1,4 +1,5 @@
 package com.client.chatwindow;
+import com.byron.dbConn.DatabaseConnection;
 import com.client.login.MainLauncher;
 import com.client.util.*;
 import com.messages.Message;
@@ -15,6 +16,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,14 +36,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.textfield.TextFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 public class ChatController implements Initializable {
+    @FXML
+    private TextField searchBar;
     @FXML
     private TextArea messageBox;
     @FXML
@@ -67,16 +74,15 @@ public class ChatController implements Initializable {
     @FXML
     ImageView microphoneImageView;
 
+    static int userId;
     Image microphoneActiveImage = new Image(getClass().getClassLoader().getResource("images/microphone-active.png").toString());
     Image microphoneInactiveImage = new Image(getClass().getClassLoader().getResource("images/microphone.png").toString());
 
     private double xOffset;
     private double yOffset;
     Logger logger = LoggerFactory.getLogger(ChatController.class);
+    static ArrayList<String> usersOnDB = new ArrayList();
 
-    public String getUsername() {
-        return usernameLabel.getText();
-    }
     public void sendButtonAction() throws IOException {
         String msg = messageBox.getText();
         if (!messageBox.getText().isEmpty()) {
@@ -309,7 +315,8 @@ public class ChatController implements Initializable {
                 ke.consume();
             }
         });
-
+        usersOnDB.add("Hello");
+        TextFields.bindAutoCompletion(searchBar, usersOnDB);
     }
 
     public void setImageLabel(String selectedPicture) {
@@ -339,6 +346,55 @@ public class ChatController implements Initializable {
             ex.printStackTrace();
         }
     }
+    @FXML
+    public void searchBarOnEnter() throws Exception {
+        if(!isInDB()) {
+
+        }
+        else {
+            try {
+                FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/UserProfile.fxml"));
+                Parent window = fmxlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle(searchBar.getText());
+                stage.setResizable(true);
+                stage.setScene(new Scene(window));
+                stage.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    public boolean isInDB() throws Exception {
+        Connection connection = DatabaseConnection.getConnection();
+        String name = searchBar.getText();
+        String[] nameparse = name.split(" ");
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql="SELECT * FROM userInfo where fname = ? and lname = ?";
+        try {
+            ps= connection.prepareStatement(sql);
+            ps.setString(1, nameparse[0]);
+            ps.setString(2, nameparse[1]);
+
+            rs = ps.executeQuery();
+            userId = rs.getInt(1);
+            System.out.println(userId);
+            if(rs.next()) {
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException ex) {
+            return false;
+        }
+        finally {
+            ps.close();
+            rs.close();
+            connection.close();
+
+        }
+    }
     public void logoutScene() {
         Platform.runLater(() -> {
             FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/LoginView.fxml"));
@@ -356,5 +412,24 @@ public class ChatController implements Initializable {
             stage.setScene(scene);
             stage.centerOnScreen();
         });
+
+    }
+    @FXML
+    public static void searchBarAutoComplete() {
+        Connection conn;
+        ResultSet rs;
+        String sql = "SELECT * FROM userInfo";
+        try {
+            conn = DatabaseConnection.getConnection();
+            rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()) {
+                usersOnDB.add(rs.getString(2) + " " + rs.getString(3));
+
+            }
+        }
+        catch(SQLException ex) {
+
+        }
+
     }
 }

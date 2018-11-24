@@ -1,6 +1,7 @@
 package com.byron.Login;
-
+import com.byron.CreateAccount.userInfo;
 import com.byron.CreateAccount.AccountController;
+import com.byron.dbConn.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,13 +15,23 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.byron.user.UserController;
 import com.client.login.LoginController;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.sql.Connection;
+
+import com.byron.Login.LoginModel;
+
+import static com.client.chatwindow.ChatController.searchBarAutoComplete;
 
 //----------------------------- DATABASE CONNECTION----------------------------------//
 public class Controller implements Initializable {
-
+    Connection connection;
     private LoginModel loginModel = new LoginModel();
     @FXML
     private Label dbstatus;
@@ -48,6 +59,7 @@ public class Controller implements Initializable {
                 Stage stage = (Stage) this.loginButton.getScene().getWindow();
                 stage.close();
                 Loggedin();
+                saveLogin();
             } else {
                 this.credentials.setText("Wrong Creditials");
             }
@@ -58,6 +70,7 @@ public class Controller implements Initializable {
 
     public void Loggedin() { //Creates a new stage and scene (dashboard)
         try {
+            searchBarAutoComplete();
             Stage userStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
 //            Pane root = (Pane) loader.load(getClass().getResource("views/mainScreen.fxml").openStream());
@@ -73,6 +86,38 @@ public class Controller implements Initializable {
             ex.printStackTrace();
         }
     }
+    public void saveLogin() throws Exception {
+        ResultSet rs = null;
+        Statement statement = null;
+        try {
+            connection = DatabaseConnection.getConnection();
+            statement = connection.createStatement(/*ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE*/);
+            String sql ="SELECT * FROM userInfo ";
+            rs= statement.executeQuery(sql);
+            for(int i =0; i < LoginModel.rowNum; i++){
+                rs.next();
+            }
+            userInfo user = userInfo.getInstance();
+            user.setFirstname(rs.getString(2));
+            user.setLastname(rs.getString(3));
+            user.setStatus(rs.getString(4));
+            user.setCountry(rs.getString(5));
+            user.setDay(rs.getString(6));
+            user.setMonth(rs.getString(7));
+            user.setYear(rs.getString(8));
+            user.setSummary(rs.getString(9));
+
+        }
+        catch(SQLException ex) {
+            ex.getErrorCode();
+        }
+        finally {
+            rs.close();
+            statement.close();
+        }
+
+    }
+
 
     //--------------------------------LAYOUT FUNCTION-------------------------------------//
     @FXML
