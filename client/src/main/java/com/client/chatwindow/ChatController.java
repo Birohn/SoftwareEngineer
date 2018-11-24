@@ -16,7 +16,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,9 +38,13 @@ import javafx.util.Duration;
 import org.controlsfx.control.textfield.TextFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
