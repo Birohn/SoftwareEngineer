@@ -1,4 +1,5 @@
 package com.client.chatwindow;
+
 import com.byron.dbConn.DatabaseConnection;
 import com.client.login.MainLauncher;
 import com.client.util.*;
@@ -282,15 +283,18 @@ public class ChatController implements Initializable {
         }
         /* Drag and Drop */
         borderPane.setOnMousePressed(event -> {
-            xOffset = MainLauncher.getPrimaryStage().getX() - event.getScreenX();
-            yOffset = MainLauncher.getPrimaryStage().getY() - event.getScreenY();
-            borderPane.setCursor(Cursor.CLOSED_HAND);
+            Platform.runLater(() -> {
+                xOffset = MainLauncher.getPrimaryStage().getX() - event.getScreenX();
+                yOffset = MainLauncher.getPrimaryStage().getY() - event.getScreenY();
+                borderPane.setCursor(Cursor.CLOSED_HAND);
+            });
         });
 
         borderPane.setOnMouseDragged(event -> {
-            MainLauncher.getPrimaryStage().setX(event.getScreenX() + xOffset);
-            MainLauncher.getPrimaryStage().setY(event.getScreenY() + yOffset);
-
+//            Platform.runLater(() -> {
+                MainLauncher.getPrimaryStage().setX(event.getScreenX() + xOffset);
+                MainLauncher.getPrimaryStage().setY(event.getScreenY() + yOffset);
+//            });
         });
 
         borderPane.setOnMouseReleased(event -> {
@@ -335,12 +339,13 @@ public class ChatController implements Initializable {
                 break;
         }
     }
+
     @FXML
     public void handleProfileClick() {
         try {
             FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/Profile.fxml"));
             Parent window = fmxlLoader.load();
-            Stage stage= new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Profile");
             stage.setResizable(true);
             stage.setScene(new Scene(window));
@@ -349,12 +354,12 @@ public class ChatController implements Initializable {
             ex.printStackTrace();
         }
     }
+
     @FXML
     public void searchBarOnEnter() throws Exception {
-        if(!isInDB()) {
+        if (!isInDB()) {
 
-        }
-        else {
+        } else {
             try {
                 FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/UserProfile.fxml"));
                 Parent window = fmxlLoader.load();
@@ -368,36 +373,36 @@ public class ChatController implements Initializable {
             }
         }
     }
+
     public boolean isInDB() throws Exception {
         Connection connection = DatabaseConnection.getConnection();
         String name = searchBar.getText();
         String[] nameparse = name.split(" ");
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String sql="SELECT * FROM userInfo where fname = ? and lname = ?";
+        String sql = "SELECT * FROM userInfo where fname = ? and lname = ?";
         try {
-            ps= connection.prepareStatement(sql);
+            ps = connection.prepareStatement(sql);
             ps.setString(1, nameparse[0]);
             ps.setString(2, nameparse[1]);
 
             rs = ps.executeQuery();
             userId = rs.getInt(1);
             System.out.println(userId);
-            if(rs.next()) {
+            if (rs.next()) {
                 return true;
             }
             return false;
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             return false;
-        }
-        finally {
+        } finally {
             ps.close();
             rs.close();
             connection.close();
 
         }
     }
+
     public void logoutScene() {
         Platform.runLater(() -> {
             FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/LoginView.fxml"));
@@ -417,6 +422,7 @@ public class ChatController implements Initializable {
         });
 
     }
+
     @FXML
     public static void searchBarAutoComplete() {
         Connection conn;
@@ -425,12 +431,11 @@ public class ChatController implements Initializable {
         try {
             conn = DatabaseConnection.getConnection();
             rs = conn.createStatement().executeQuery(sql);
-            while(rs.next()) {
+            while (rs.next()) {
                 usersOnDB.add(rs.getString(2) + " " + rs.getString(3));
 
             }
-        }
-        catch(SQLException ex) {
+        } catch (SQLException ex) {
 
         }
 

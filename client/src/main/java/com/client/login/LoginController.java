@@ -136,9 +136,12 @@ public class LoginController implements Initializable {
 
         /* Drag and Drop */
         borderPane.setOnMousePressed(event -> {
-            xOffset = MainLauncher.getPrimaryStage().getX() - event.getScreenX();
-            yOffset = MainLauncher.getPrimaryStage().getY() - event.getScreenY();
-            borderPane.setCursor(Cursor.CLOSED_HAND);
+
+                xOffset = MainLauncher.getPrimaryStage().getX() - event.getScreenX();
+                yOffset = MainLauncher.getPrimaryStage().getY() - event.getScreenY();
+            Platform.runLater(() -> {
+                borderPane.setCursor(Cursor.CLOSED_HAND);
+            });
         });
 
         borderPane.setOnMouseDragged(event -> {
